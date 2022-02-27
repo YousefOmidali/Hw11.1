@@ -17,16 +17,21 @@ public class main {
         words.add("Yousef");
         //-----------------------------------------------------------------------------------
         //a
-        Map<Integer, List<String>> charFrequency =
+        Map<Integer, List<String>> wordLength =
                 words.stream()
                         .collect(Collectors.groupingBy(String::length));
-        System.out.println(charFrequency);
+        System.out.println(wordLength);
         //------------------------------------------------------------------------------------
         //b
+        for (Map.Entry<Integer, List<String>> a : wordLength.entrySet()) {
+            System.out.print(a + " " + a.getValue().stream().count()+" , ");
+        }
+
+
 //        Map<Integer, List<String>> charFrequency1 =
 //                words.stream()
 //                        .collect(Collectors.groupingBy(String::length)).entrySet()
-//                        .stream().collect(Collectors.toMap(Map.Entry::getKey,);
+//                        .stream().collect(Collectors.toMap(Map.Entry::getKey, e : Collectors.toMap(e.getValue().size(), e.getValue())));
 //        System.out.println(charFrequency1);
         //------------------------------------------------------------------------------------
         //Additional
@@ -42,6 +47,7 @@ public class main {
 //                .entrySet().stream()
 //                .collect(Collectors.toMap(Map.Entry::getKey,e -> Collectors.toMap(e.getValue().size(),e.getValue())));
 //        System.out.println(result);
+
 //
 //        System.out.println(words.stream()
 //                .collect(
